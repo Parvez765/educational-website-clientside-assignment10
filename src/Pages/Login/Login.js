@@ -1,10 +1,13 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+import { FaGoogle, FaGithub } from "react-icons/fa";
 
 const Login = () => {
+    const googleProvider = new GoogleAuthProvider()
 
-    const { user, handleEmailSignIn } = useContext(AuthContext)
+    const { user, handleEmailSignIn, handleGoogleLogin } = useContext(AuthContext)
     console.log(user)
     const handleFormSubmit = (event) => {
         event.preventDefault()
@@ -18,6 +21,15 @@ const Login = () => {
             })
         .catch(error => console.error(error))
     }
+    
+    const loginWithGoogle = () => {
+        handleGoogleLogin(googleProvider)
+            .then((result) => {
+            console.log("Logged In Successfully")
+            })
+        .catch(error =>  console.error(error))
+    }
+
 
     return (
         <div>
@@ -46,7 +58,8 @@ const Login = () => {
                             </label>
                             </div>
                             <div className="form-control mt-6">
-                            <button className="btn btn-primary">Login</button>
+                                    <button className="btn btn-primary">Login</button>
+                                    <FaGoogle onClick={loginWithGoogle} className='mt-5 ml-auto mr-auto'></FaGoogle>
                                 </div>
                                 <Link><p className='mt-5'>New To This Accout. Please Register</p></Link>
                         </form>
