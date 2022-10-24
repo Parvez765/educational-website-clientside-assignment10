@@ -15,6 +15,7 @@ const Navbar = () => {
                 <Link to="/blog" className="btn btn-ghost normal-case text-xl">Blog</Link>
             
             <FaUser className='ml-[1200px]'></FaUser>
+                <Link to="/login" className="btn btn-ghost normal-case text-xl ml-8">Login</Link>
 
             {/* Toggle Button */}
             <label className="swap swap-rotate ml-auto lg-block">
