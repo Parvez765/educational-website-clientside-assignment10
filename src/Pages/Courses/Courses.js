@@ -6,7 +6,7 @@ import "./Courses.css"
 
 const Courses = () => {
     const courses = useLoaderData()
-    console.log(courses)
+    // console.log(courses)
     
     return (
         <div className='flex gap-16 courseContainer'>

@@ -1,11 +1,12 @@
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import Swal from 'sweetalert2';
 
 const Login = () => {
+    const [error, setError] = useState("")
     const googleProvider = new GoogleAuthProvider()
     const githubProvider = new GithubAuthProvider()
 
@@ -29,7 +30,7 @@ const Login = () => {
                     timer: 1500
                   })
             })
-        .catch(error => console.error(error))
+        .catch(error => setError(error))
     }
     
 
@@ -45,7 +46,7 @@ const Login = () => {
                     timer: 1500
                   })
             })
-        .catch(error =>  console.error(error))
+        .catch(error =>  setError(error))
     }
 
 
@@ -61,7 +62,7 @@ const Login = () => {
                     timer: 1500
                   })
             })
-        .catch(error=> console.log(error))
+        .catch(error=> setError(error))
     }
 
     return (
@@ -89,7 +90,8 @@ const Login = () => {
                             <label className="label">
                                 {/* <a href="#" className="label-text-alt link link-hover">Forgot password?</a> */}
                             </label>
-                            </div>
+                                </div>
+                                <p>{error.message}</p>
                             <div className="form-control mt-6">
                                     <button className="btn btn-primary">Login</button>
                                     <div className='ml-auto mr-auto flex gap-5'>
@@ -102,7 +104,7 @@ const Login = () => {
                                    </div>
                                 </div>
                                 <hr  className='mt-5'/>
-                                <Link to="/register"><p className='mt-5'>New To This Accout. Please Register</p></Link>
+                                <Link to="/register"><p className='mt-5 text-center'>New To This Accout. Please Register</p></Link>
                         </form>
                     </div>
                     </div>

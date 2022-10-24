@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 import Main from './Layout/Main';
 import Blog from './Pages/Blog/Blog';
+import Course from './Pages/Courses/Course/Course';
 import Courses from './Pages/Courses/Courses';
 import FAQ from './Pages/FAQ/FAQ';
 import Login from './Pages/Login/Login';
@@ -18,7 +19,13 @@ const router = createBrowserRouter([
         },
         element: <Courses></Courses>
       },
-      
+      {
+        path: "/courses/:id",
+        loader: ({ params }) => {
+          return fetch(`http://localhost:5000/courses/category/${params.id}`)
+        },
+        element: <Course></Course>
+      },
       {
         path: "/faq", element: <FAQ></FAQ>
       },
