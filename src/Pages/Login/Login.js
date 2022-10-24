@@ -1,14 +1,18 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import { FaGoogle, FaGithub } from "react-icons/fa";
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const googleProvider = new GoogleAuthProvider()
+    const githubProvider = new GithubAuthProvider()
 
-    const { user, handleEmailSignIn, handleGoogleLogin } = useContext(AuthContext)
-    console.log(user)
+    const { user, handleEmailSignIn, handleGoogleLogin, handleLoginWithGithub } = useContext(AuthContext)
+    
+    // Login With Email and Password
+
     const handleFormSubmit = (event) => {
         event.preventDefault()
         const form = event.target
@@ -22,14 +26,37 @@ const Login = () => {
         .catch(error => console.error(error))
     }
     
+
+    // Google Login Functionality
     const loginWithGoogle = () => {
         handleGoogleLogin(googleProvider)
             .then((result) => {
-            console.log("Logged In Successfully")
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Google Login Successfull',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
             })
         .catch(error =>  console.error(error))
     }
 
+
+    // Github Login Functionality
+    const logInWithGithub = () => {
+        handleLoginWithGithub(githubProvider)
+            .then(result => {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'GitHub Login Successfull',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+            })
+        .catch(error=> console.log(error))
+    }
 
     return (
         <div>
@@ -59,8 +86,16 @@ const Login = () => {
                             </div>
                             <div className="form-control mt-6">
                                     <button className="btn btn-primary">Login</button>
-                                    <FaGoogle onClick={loginWithGoogle} className='mt-5 ml-auto mr-auto'></FaGoogle>
+                                    <div className='ml-auto mr-auto flex gap-5'>
+                                        <div>
+                                        <FaGoogle onClick={loginWithGoogle} className='mt-5 ml-auto mr-auto'></FaGoogle>
+                                    </div>
+                                        <div>
+                                        <FaGithub onClick={logInWithGithub} className='mt-5 ml-auto mr-auto'></FaGithub>
+                                        </div>
+                                   </div>
                                 </div>
+                                <hr  className='mt-5'/>
                                 <Link><p className='mt-5'>New To This Accout. Please Register</p></Link>
                         </form>
                     </div>
