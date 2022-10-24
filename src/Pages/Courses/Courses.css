@@ -1,0 +1,8 @@
+.courseImg{
+    height: 150px;
+    width: 100%;
+    object-fit: contain;
+}
+.courseContainer{
+    margin: 100px;
+}
