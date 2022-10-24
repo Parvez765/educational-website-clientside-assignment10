@@ -21,7 +21,13 @@ const Login = () => {
         console.log(email, password)
         handleEmailSignIn(email, password)
             .then(result => {
-            console.log("User Signed In")
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Login Successfull',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
             })
         .catch(error => console.error(error))
     }
@@ -96,7 +102,7 @@ const Login = () => {
                                    </div>
                                 </div>
                                 <hr  className='mt-5'/>
-                                <Link><p className='mt-5'>New To This Accout. Please Register</p></Link>
+                                <Link to="/register"><p className='mt-5'>New To This Accout. Please Register</p></Link>
                         </form>
                     </div>
                     </div>

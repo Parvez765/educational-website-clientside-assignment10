@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import {getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut} from "firebase/auth"
+import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut} from "firebase/auth"
 import app from '../../firebase/firebase.init';
 import { current } from 'daisyui/src/colors';
 
@@ -10,6 +10,12 @@ const auth = getAuth(app)
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState({})
     
+    // Create New User
+    const handleCreateNewUser = (email, password) => {
+        return createUserWithEmailAndPassword(auth, email, password)
+    }
+
+
     // Login With Email And Password
     const handleEmailSignIn = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password)
@@ -40,7 +46,7 @@ const AuthProvider = ({ children }) => {
         }
     },[])
 
-    const authInfo = {user, handleEmailSignIn, handleGoogleLogin, handleLoginWithGithub, handleUserSignOut}
+    const authInfo = {user, handleEmailSignIn, handleGoogleLogin, handleLoginWithGithub, handleUserSignOut, handleCreateNewUser}
 
     return (
         <AuthContext.Provider value={authInfo}>
