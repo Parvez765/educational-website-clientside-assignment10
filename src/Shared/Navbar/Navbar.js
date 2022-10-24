@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import headerLogo from "../../images/headerlogo.png"
 import { FaUser } from "react-icons/fa";
+import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+import "./Navbar.css"
 
 const Navbar = () => {
+    const { user } = useContext(AuthContext)
+    console.log(user)
     const [dark, setDark] = useState(false)
     return (
         <div data-theme={dark ? "black" : "light"}>
@@ -14,8 +18,14 @@ const Navbar = () => {
                 <Link  to="/faq" className="btn btn-ghost normal-case text-xl">FAQ</Link>
                 <Link to="/blog" className="btn btn-ghost normal-case text-xl">Blog</Link>
             
-            <FaUser className='ml-[1200px]'></FaUser>
-                <Link to="/login" className="btn btn-ghost normal-case text-xl ml-8">Login</Link>
+                {
+                    user ? <img className='userPhoto ml-[1200px]' src={user.photoURL} alt=""></img> : <FaUser className='ml-[1200px]'></FaUser>
+                }
+                
+                {
+                    user?.uid ?  <Link to="/login" className="btn btn-ghost normal-case text-xl ml-3">Logout</Link> :  <Link to="/login" className="btn btn-ghost normal-case text-xl ml-3">Login</Link> 
+                }
+               
 
             {/* Toggle Button */}
             <label className="swap swap-rotate ml-auto lg-block">
