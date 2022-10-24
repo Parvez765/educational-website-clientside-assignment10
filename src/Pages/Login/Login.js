@@ -6,7 +6,7 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 import Swal from 'sweetalert2';
 
 const Login = () => {
-    const [error, setError] = useState("")
+    const [error, setError] = useState()
     const googleProvider = new GoogleAuthProvider()
     const githubProvider = new GithubAuthProvider()
 
@@ -91,20 +91,20 @@ const Login = () => {
                                 {/* <a href="#" className="label-text-alt link link-hover">Forgot password?</a> */}
                             </label>
                                 </div>
-                                <p>{error.message}</p>
+                                <p>{error}</p>
                             <div className="form-control mt-6">
                                     <button className="btn btn-primary">Login</button>
                                     <div className='ml-auto mr-auto flex gap-5'>
                                         <div>
-                                        <FaGoogle onClick={loginWithGoogle} className='mt-5 ml-auto mr-auto'></FaGoogle>
-                                    </div>
+                                            <FaGoogle onClick={loginWithGoogle} className='mt-5 ml-auto mr-auto'></FaGoogle>
+                                        </div>
                                         <div>
-                                        <FaGithub onClick={logInWithGithub} className='mt-5 ml-auto mr-auto'></FaGithub>
+                                            <FaGithub onClick={logInWithGithub} className='mt-5 ml-auto mr-auto'></FaGithub>
                                         </div>
                                    </div>
                                 </div>
                                 <hr  className='mt-5'/>
-                                <Link to="/register"><p className='mt-5 text-center'>New To This Accout. Please Register</p></Link>
+                                <Link to="/register"><p className='mt-5'>New To This Accout. Please Register</p></Link>
                         </form>
                     </div>
                     </div>

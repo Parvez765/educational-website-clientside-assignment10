@@ -1,10 +1,17 @@
-import React, { useContext } from 'react';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import React, { useContext, useState } from 'react';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 const Register = () => {
-   const {handleCreateNewUser} = useContext(AuthContext)
+    const [error, setError] = useState("")
+    const googleProvider = new GoogleAuthProvider()
+    const githubProvider = new GithubAuthProvider()
+    
+    const { handleCreateNewUser,handleGoogleLogin, handleLoginWithGithub } = useContext(AuthContext)
+    
 
     const handleRegister = (event) => {
         event.preventDefault()
@@ -26,6 +33,36 @@ const Register = () => {
                   })
             })
         .catch(error => console.log(error))
+    }
+
+    const loginWithGoogle = () => {
+        handleGoogleLogin(googleProvider)
+            .then((result) => {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Google Login Successfull',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+            })
+        .catch(error =>  setError(error))
+    }
+
+
+    // Github Login Functionality
+    const logInWithGithub = () => {
+        handleLoginWithGithub(githubProvider)
+            .then(result => {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'GitHub Login Successfull',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+            })
+        .catch(error=> setError(error))
     }
 
     return (
@@ -67,12 +104,23 @@ const Register = () => {
                                     {/* <a href="#" className="label-text-alt link link-hover">Forgot password?</a> */}
                                 </label>
                                 </div>
+                                <p>{error.message}</p>
                                 <div className="form-control mt-6">
                                 <button className="btn btn-primary">Register</button>
                                 </div>
+                                <div className=''>
+                                        <div>
+                                            <FaGoogle onClick={loginWithGoogle} className='mt-5 ml-auto mr-auto'></FaGoogle>
+                                        </div>
+                                        <div>
+                                            <FaGithub onClick={logInWithGithub} className='mt-5 ml-auto mr-auto'></FaGithub>
+                                        </div>
+                                </div>
+                        
+                        
                             </form>
                                 <hr  className='mt-5'/>
-                                <Link to="/login"><p className='mt-5 text-center'>New To This Accout. Please Register</p></Link>
+                                <Link to="/login"><p className='mt-5 text-center'>Already Have An Account? Please Login</p></Link>
                         </div>
                         </div>
                     </div>
