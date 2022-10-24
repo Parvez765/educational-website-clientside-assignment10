@@ -6,7 +6,7 @@ import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import "./Navbar.css"
 
 const Navbar = () => {
-    const [userName, setUserName] = useState("")
+   
     const { user, handleUserSignOut } = useContext(AuthContext)
     // console.log(user)
     const [dark, setDark] = useState(false)

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import RightSideNav from '../../Shared/RightSideNav/RightSideNav';
 import Course from './Course/Course';
 import "./Courses.css"
@@ -23,9 +23,13 @@ const Courses = () => {
                             </h2>
                                 <p>Rating: {course.rating}</p>
                             
-                        </div>
+                            <Link to={`/courses/${course.id}`}>
+                                <button className="btn btn-primary w-72 mt-5">See Details</button>
+                            </Link>
+                            </div>
                     </div>
-                </div>)
+                    </div>
+                )
             }
            </div>
            
