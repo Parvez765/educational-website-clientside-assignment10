@@ -5,13 +5,16 @@ import Main from './Layout/Main';
 import Blog from './Pages/Blog/Blog';
 import Course from './Pages/Courses/Course/Course';
 import Courses from './Pages/Courses/Courses';
+import Error from './Pages/Error/Error';
 import FAQ from './Pages/FAQ/FAQ';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
 
 const router = createBrowserRouter([
   {
-    path: "/", element: <Main></Main>, children: [
+    path: "/",
+    errorElement: <Error></Error>,
+    element: <Main></Main>, children: [
       {
         path: "/courses",
         loader: () => {
