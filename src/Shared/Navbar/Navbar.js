@@ -6,9 +6,18 @@ import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import "./Navbar.css"
 
 const Navbar = () => {
-    const { user } = useContext(AuthContext)
+    const { user, handleUserSignOut } = useContext(AuthContext)
     console.log(user)
     const [dark, setDark] = useState(false)
+
+    const userSignedOut = () => {
+        handleUserSignOut()
+            .then(() => {
+            
+            })
+        .catch(error => console.log(error))
+    }
+
     return (
         <div data-theme={dark ? "black" : "light"}>
             <div className="navbar bg-primary text-primary-content">
@@ -23,7 +32,7 @@ const Navbar = () => {
                 }
                 
                 {
-                    user?.uid ?  <Link to="/login" className="btn btn-ghost normal-case text-xl ml-3">Logout</Link> :  <Link to="/login" className="btn btn-ghost normal-case text-xl ml-3">Login</Link> 
+                    user?.uid ?  <Link to="/login" onClick={userSignedOut} className="btn btn-ghost normal-case text-xl ml-3">Logout</Link> :  <Link to="/login" className="btn btn-ghost normal-case text-xl ml-3">Login</Link> 
                 }
                
 

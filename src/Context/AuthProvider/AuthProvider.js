@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import {getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup} from "firebase/auth"
+import {getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut} from "firebase/auth"
 import app from '../../firebase/firebase.init';
 import { current } from 'daisyui/src/colors';
 
@@ -26,6 +26,11 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, provider)
     }
 
+    // UserSignOut
+    const handleUserSignOut = () => {
+        return signOut(auth)
+    }
+
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser)
@@ -35,7 +40,7 @@ const AuthProvider = ({ children }) => {
         }
     },[])
 
-    const authInfo = {user, handleEmailSignIn, handleGoogleLogin, handleLoginWithGithub}
+    const authInfo = {user, handleEmailSignIn, handleGoogleLogin, handleLoginWithGithub, handleUserSignOut}
 
     return (
         <AuthContext.Provider value={authInfo}>
