@@ -3,12 +3,14 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 import Main from './Layout/Main';
 import Blog from './Pages/Blog/Blog';
+import Checkout from './Pages/Checkout/Checkout';
 import Course from './Pages/Courses/Course/Course';
 import Courses from './Pages/Courses/Courses';
 import Error from './Pages/Error/Error';
 import FAQ from './Pages/FAQ/FAQ';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
+import PrivateRoute from './Route/PrivateRoute/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -40,6 +42,13 @@ const router = createBrowserRouter([
       },
       {
         path: "/register", element: <Register></Register>
+      },
+      {
+        path: "/checkout/:id",
+        loader: ({params}) => {
+          return fetch(`http://localhost:5000/courses/${params.id}`)
+        },
+        element: <PrivateRoute><Checkout></Checkout></PrivateRoute>
       }
     ]
   }

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const Course = () => {
     
     const courses = useLoaderData()
-    console.log(courses.name)
+    // console.log(courses.name)
    
 
     // const courses = useLoaderData()
@@ -24,7 +24,7 @@ const Course = () => {
                         </h2>
                             <p>{courses.details}</p>
                             <p>Course Price: {courses.price}</p>
-                        
+                        <Link to={`/checkout/${courses.id}`}><button className="btn btn-link">Get Premium Access</button></Link>
                     </div>
             </div>
           
