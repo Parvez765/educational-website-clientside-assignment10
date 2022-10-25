@@ -10,4 +10,5 @@ This is An Educational Website name Academic Earth. Here in This Project  i Use
  2. Deploy an Firebase Authentication System.
  3. Implement Google and Github Signup System
  4. There is Also a Checkout page where user can checkout with specific product what they want
- 5. Also There is An Attrective Footer
+ 5. A dynamic Toggle bar used here. When A User will log in the feature will be availble
+ 6. Also There is An Attrective Footer
