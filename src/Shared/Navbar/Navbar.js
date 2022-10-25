@@ -6,7 +6,9 @@ import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import "./Navbar.css"
 
 const Navbar = () => {
-   
+    const [showName, setShowName] = useState()
+    console.log(showName)
+    
     const { user, handleUserSignOut } = useContext(AuthContext)
     // console.log(user)
     const [dark, setDark] = useState(false)
@@ -19,6 +21,8 @@ const Navbar = () => {
         .catch(error => console.log)
     }
 
+    
+
     return (
         <div data-theme={dark ? "black" : "light"}>
             <div className="navbar bg-primary text-primary-content">
@@ -29,7 +33,7 @@ const Navbar = () => {
                 <Link to="/blog" className="btn btn-ghost normal-case text-xl">Blog</Link>
             
                 {
-                    user ? <img className='userPhoto ml-[1200px]' src={user.photoURL} alt=""></img> : <FaUser className='ml-[1200px]'></FaUser>
+                    user?.photoURL ? <img className='userPhoto ml-[1200px]' onMouseEnter={()=> setShowName(user?.displayName)} src={user.photoURL} alt=""></img> : <FaUser className='ml-[1200px]'></FaUser>
                 }
                 
                 {

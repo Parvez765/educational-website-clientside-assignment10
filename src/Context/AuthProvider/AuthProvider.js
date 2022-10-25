@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut} from "firebase/auth"
+import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from "firebase/auth"
 import app from '../../firebase/firebase.init';
 import { current } from 'daisyui/src/colors';
 
@@ -43,6 +43,11 @@ const AuthProvider = ({ children }) => {
         return signOut(auth)
     }
 
+    // User Profile Update
+    const updateUserProfile = (profile) => {
+        return updateProfile(auth.currentUser, profile)
+    }
+
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser)
@@ -53,7 +58,7 @@ const AuthProvider = ({ children }) => {
         }
     },[])
 
-    const authInfo = {user, handleEmailSignIn, handleGoogleLogin, handleLoginWithGithub, handleUserSignOut, handleCreateNewUser, loading}
+    const authInfo = {user, handleEmailSignIn, handleGoogleLogin, handleLoginWithGithub, handleUserSignOut, handleCreateNewUser, loading, updateUserProfile}
 
     return (
         <AuthContext.Provider value={authInfo}>

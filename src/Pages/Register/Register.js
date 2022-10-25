@@ -10,7 +10,7 @@ const Register = () => {
     const googleProvider = new GoogleAuthProvider()
     const githubProvider = new GithubAuthProvider()
     
-    const { handleCreateNewUser,handleGoogleLogin, handleLoginWithGithub } = useContext(AuthContext)
+    const { handleCreateNewUser,handleGoogleLogin, handleLoginWithGithub, updateUserProfile } = useContext(AuthContext)
     
 
     const handleRegister = (event) => {
@@ -30,9 +30,21 @@ const Register = () => {
                     title: 'Thanks For The Registration',
                     showConfirmButton: false,
                     timer: 1500
-                  })
+                })
+                handleUpdateUserProfile(photo)
             })
         .catch(error => console.log(error))
+    }
+
+    const handleUpdateUserProfile = (photo) => {
+        const profile = {
+            photoURL : photo
+        }
+        updateUserProfile(profile)
+            .then(() => {
+            console.log("User Updated")
+            })
+        .catch(error => console.error(error))
     }
 
     const loginWithGoogle = () => {
