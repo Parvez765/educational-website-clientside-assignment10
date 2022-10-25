@@ -6,7 +6,7 @@ const RightSideNav = ({filterCourse}) => {
     const [categories, setCategories] = useState()
     // console.log(categories)
     useEffect(() => {
-        fetch(`http://localhost:5000/category/:id}`)
+        fetch(`https://assignment10-educationalwebsite-serverside.vercel.app/category/:id}`)
             .then(res => res.json())
         .then(data => setCategories(data))
 

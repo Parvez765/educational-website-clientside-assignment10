@@ -12,10 +12,10 @@ const Course = () => {
     return (
         <div>
             
-            <div className='container ml-auto mr-auto mt-10' ref={ref}>
-                <h2 className='text-center mb-8 text-2xl font-bold'>Details About : {courses.name}</h2>
-                <div className="card w-96 bg-base-100 shadow-xl mx-auto">
-                    <figure><img src={courses.img} alt="Shoes" /></figure>
+            <div className='container ml-auto mr-auto mt-10' >
+                <div className="card w-96 bg-base-100 shadow-xl mx-auto" ref={ref}>
+                <h2 className='text-center mb-8 text-2xl font-bold pt-8'>Details About : {courses.name}</h2>
+                    <figure><img src={courses.img} alt="" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">
                             {courses.name}
@@ -29,7 +29,7 @@ const Course = () => {
           
             </div>
                 <div className='ml-[900px] mt-8'>
-                    <Pdf targetRef={ref} filename="code-example.pdf">
+                    <Pdf targetRef={ref} filename="course-resources.pdf">
                         {({ toPdf }) => <button className='btn btn-primary' onClick={toPdf}>Generate Pdf</button>}
                     </Pdf>
                 </div>

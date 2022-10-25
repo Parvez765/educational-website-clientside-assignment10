@@ -31,14 +31,15 @@ const Register = () => {
                     showConfirmButton: false,
                     timer: 1500
                 })
-                handleUpdateUserProfile(photo)
+                handleUpdateUserProfile(photo, name)
             })
         .catch(error => console.log(error))
     }
 
-    const handleUpdateUserProfile = (photo) => {
+    const handleUpdateUserProfile = (photo, name) => {
         const profile = {
-            photoURL : photo
+            photoURL: photo,
+            displayName : name
         }
         updateUserProfile(profile)
             .then(() => {

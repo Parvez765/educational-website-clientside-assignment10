@@ -6,11 +6,11 @@ import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import "./Navbar.css"
 
 const Navbar = () => {
-    const [showName, setShowName] = useState()
+    const [showName, setShowName] = useState("")
     console.log(showName)
     
     const { user, handleUserSignOut } = useContext(AuthContext)
-    // console.log(user)
+    console.log(user)
     const [dark, setDark] = useState(false)
 
     const userSignedOut = () => {
@@ -32,10 +32,12 @@ const Navbar = () => {
                 <Link  to="/faq" className="btn btn-ghost normal-case text-xl">FAQ</Link>
                 <Link to="/blog" className="btn btn-ghost normal-case text-xl">Blog</Link>
             
-                {
-                    user?.photoURL ? <img className='userPhoto ml-[1200px]' onMouseEnter={()=> setShowName(user?.displayName)} src={user.photoURL} alt=""></img> : <FaUser className='ml-[1200px]'></FaUser>
-                }
                 
+                <div className="tooltip tooltip-bottom ml-[1200px]" data-tip={showName}>
+                {
+                    user ? <img className='userPhoto' onMouseOver={()=> setShowName(user?.displayName)} src={user.photoURL} alt=""></img> : <FaUser className='ml-[1200px]'></FaUser>
+                }
+                </div>
                 {
                     user?.uid ?  <Link to="/login" onClick={userSignedOut} className="btn btn-ghost normal-case text-xl ml-3">Logout</Link> :  <Link to="/login" className="btn btn-ghost normal-case text-xl ml-3">Login</Link> 
                 }
