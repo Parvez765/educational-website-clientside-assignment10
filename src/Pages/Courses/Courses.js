@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import RightSideNav from '../../Shared/RightSideNav/RightSideNav';
 import Course from './Course/Course';
@@ -6,13 +6,27 @@ import "./Courses.css"
 
 const Courses = () => {
     const courses = useLoaderData()
+    const [allCourses, setAllCourses] = useState(courses)
+    const [category, setCategory] = useState(0)
+    // console.log(category)
     // console.log(courses)
     
+    const filterCourse = (cateId) => {
+        setAllCourses(courses.filter(course => course.category === cateId))
+    }
+
+
+    // useEffect(() => {
+    //     setAllCourses(courses.filter(course => course.category === category))
+    // }, [category, courses])
+
+
+
     return (
         <div className='flex gap-16 courseContainer'>
             <div className='grid lg:grid-cols-3 gap-10 mt-8'>
             {
-                courses?.map(course => 
+                allCourses?.map(course => 
                     <div className=''>
                     <div className="card w-96 bg-base-100 shadow-xl">
                         <figure><img className='courseImg' src={course.img} alt="Shoes" /></figure>
@@ -35,7 +49,7 @@ const Courses = () => {
            
           
             <div>
-                <RightSideNav></RightSideNav>
+                <RightSideNav filterCourse={filterCourse} />
             
             </div>
            

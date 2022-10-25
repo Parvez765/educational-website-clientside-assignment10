@@ -26,7 +26,7 @@ const Course = () => {
                             <p>Course Price: {courses.price}</p>
                         
                     </div>
-                </div>
+            </div>
           
         </div>
     );
