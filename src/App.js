@@ -8,6 +8,7 @@ import Course from './Pages/Courses/Course/Course';
 import Courses from './Pages/Courses/Courses';
 import Error from './Pages/Error/Error';
 import FAQ from './Pages/FAQ/FAQ';
+import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
 import PrivateRoute from './Route/PrivateRoute/PrivateRoute';
@@ -17,6 +18,9 @@ const router = createBrowserRouter([
     path: "/",
     errorElement: <Error></Error>,
     element: <Main></Main>, children: [
+      {
+        path : "/", element: <Home></Home>
+      },
       {
         path: "/courses",
         loader: () => {
