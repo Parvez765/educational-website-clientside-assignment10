@@ -13,7 +13,7 @@ const RightSideNav = ({filterCourse}) => {
     }, [])
 
     return (
-        <div className='flex justify-center items-center'>
+        
             <div className='card w-96 bg-base-100 shadow-xl text-center mt-8'>
                 {
                     categories?.map(category => 
@@ -21,7 +21,7 @@ const RightSideNav = ({filterCourse}) => {
                 )
             }
             </div>
-        </div>
+        
     );
 };
 

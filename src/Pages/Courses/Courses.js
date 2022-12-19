@@ -23,7 +23,7 @@ const Courses = () => {
 
 
     return (
-        <div className='flex flex-col-reverse lg:flex-row justify-items-center  courseContainer'>
+        <div className='flex flex-col-reverse lg:flex-row justify-center items-center lg:items-start  gap-6  courseContainer'>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-7 mt-8'>
             {
                 allCourses?.map(course => 
