@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Mentoring from '../../Components/Mentoring/Mentoring';
 import headerImage from "../../images/headerImage-01.png"
 
 const Home = () => {
@@ -11,7 +12,7 @@ const Home = () => {
                 </div>
                 <div>
                     <h2 className='text-5xl font-bold text-center lg:text-left'> Hello From <br></br>Academic Earth</h2>
-                    <p className='mt-5'>Academic Earth is An Online Course Platfrom Who Serves Premium Content.</p>
+                    <p className='mt-5 text-center lg:text-left'>Academic Earth is An Online Course Platfrom Who Serves Premium Content.</p>
                     <Link to="/courses">
                         <div className='flex justify-center lg:justify-start items-center'>
                             <button className='btn btn-primary mt-5'>Visit Our Courses</button>
@@ -21,11 +22,12 @@ const Home = () => {
             </div>
             <div className='text-center mt-20'>
                 <h2 className='text-3xl font-bold mb-5'>About Us</h2>
-                <p className='text-bold text-lg'>We Are Academic Earth. We Provide Best quality Learning Material.<br></br> You Can Check Our FAQ Section For More Details</p>
+                <p className='text-bold text-lg'>We Are Academic Earth. We Provide Best quality Learning Material.<br/> You Can Check Our FAQ Section For More Details</p>
                 <Link to="/faq">
                     <button className='btn btn-primary mt-5'>Visit FAQ</button>
                     </Link>
             </div>
+            <Mentoring/>
         </div>
     );
 };
