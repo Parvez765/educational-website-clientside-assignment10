@@ -33,7 +33,7 @@ const Register = () => {
                 })
                 handleUpdateUserProfile(photo, name)
             })
-        .catch(error => console.log(error))
+        .catch(error => setError(error))
     }
 
     const handleUpdateUserProfile = (photo, name) => {
@@ -45,7 +45,7 @@ const Register = () => {
             .then(() => {
             console.log("User Updated")
             })
-        .catch(error => console.error(error))
+        .catch(error =>setError(error))
     }
 
     const loginWithGoogle = () => {
@@ -81,14 +81,14 @@ const Register = () => {
     return (
         <div>
            <div className="hero min-h-screen bg-base-200">
-            <div className="hero-content flex-col lg:flex-row-reverse">
+            <div className="hero-content flex-col mt-6">
                     <div className="text-center lg:text-center">
                         <h1 className="text-4xl font-bold">WelCome To Academic Earth</h1>
-                        <h2 className="text-2xl mt-3 font-bold">Please Register and Enjoy A Lot of Premium resouces</h2>
+                        <h2 className="text-2xl mt-3 font-bold mb-10">Please Register and Enjoy A Lot of Premium resouces</h2>
                        
                         </div>
                         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <div className="card-body">
+                        <div className="card-body p-6">
                             <form onSubmit={handleRegister}>
                                 <div className="form-control">
                                 <label className="label">
@@ -132,6 +132,7 @@ const Register = () => {
                         
                         
                             </form>
+                                 <p className='text-center font-bold text-red-800'>{error.message}</p>  
                                 <hr  className='mt-5'/>
                                 <Link to="/login"><p className='mt-5 text-center'>Already Have An Account? Please Login</p></Link>
                         </div>

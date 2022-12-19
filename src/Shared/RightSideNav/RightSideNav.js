@@ -13,12 +13,14 @@ const RightSideNav = ({filterCourse}) => {
     }, [])
 
     return (
-        <div className='card w-96 bg-base-100 shadow-xl text-center mt-8'>
-            {
-                categories?.map(category => 
-                    <p onClick={()=>  filterCourse(category.id)} className='mt-6 mb-8'>{category.name}</p>
-               )
-           }
+        <div className='flex justify-center items-center'>
+            <div className='card w-96 bg-base-100 shadow-xl text-center mt-8'>
+                {
+                    categories?.map(category => 
+                        <p onClick={()=>  filterCourse(category.id)} className='mt-6 mb-8'>{category.name}</p>
+                )
+            }
+            </div>
         </div>
     );
 };

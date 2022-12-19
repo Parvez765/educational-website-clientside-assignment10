@@ -10,7 +10,7 @@ const Login = () => {
     const location = useLocation()
     const from = location.state?.from?.pathname || "/"
     const navigate = useNavigate()
-    const [error, setError] = useState()
+    const [error, setError] = useState("")
     const googleProvider = new GoogleAuthProvider()
     const githubProvider = new GithubAuthProvider()
 
@@ -98,7 +98,7 @@ const Login = () => {
                                 {/* <a href="#" className="label-text-alt link link-hover">Forgot password?</a> */}
                             </label>
                                 </div>
-                                <p>{error}</p>
+                                {/* <p>{error.message}</p> */}
                             <div className="form-control mt-6">
                                     <button className="btn btn-primary">Login</button>
                                     <div className='ml-auto mr-auto flex gap-5'>
@@ -110,6 +110,7 @@ const Login = () => {
                                         </div>
                                    </div>
                                 </div>
+                                <p className='text-center font-bold text-red-800'>{error.message}</p>  
                                 <hr  className='mt-5'/>
                                 <Link to="/register"><p className='mt-5'>New To This Accout. Please Register</p></Link>
                         </form>
