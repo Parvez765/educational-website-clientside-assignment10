@@ -28,14 +28,15 @@ const services = [
 
 const Mentoring = () => {
     return (
-        <div className='container  mx-auto text-center mt-24'>
+        <div className='container  mx-auto text-center mt-24 p-6'>
             <h2 className='text-xl font-semibold'>How We Care For Our Students </h2>
             <h2 className='text-5xl font-bold'>Mentoring Flow </h2>
 
+            
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center justify-center items-center mt-14'>
                 {
                     services.map(service => <>
-                        <div className="card w-96 text-primary-content shadow-xl">
+                        <div className="card w-96 text-primary-content shadow-xl p-6">
                             <div className="card-body hover:-mt-10 cursor-pointer">
                                 <div className='flex justify-center items-center'>
                                     <img src={service.img} alt="" className='w-[150px] '/>
@@ -51,6 +52,7 @@ const Mentoring = () => {
                 }
             </div>
 
+        
         </div>
     );
 };
