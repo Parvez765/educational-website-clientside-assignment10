@@ -23,35 +23,32 @@ const Courses = () => {
 
 
     return (
-        <div className='flex flex-col-reverse lg:flex-row justify-center items-center lg:items-start  gap-6  courseContainer'>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-7 mt-8'>
-            {
-                allCourses?.map(course => 
-                    <div className=''>
-                    <div className="card w-96 bg-base-100 shadow-xl">
-                        <figure><img className='courseImg' src={course.img} alt="Shoes" /></figure>
-                        <div className="card-body">
-                            <h2 className="card-title">
-                            {course.name}
-                            <div className="badge badge-secondary">NEW</div>
-                            </h2>
-                                <p>Rating: {course.rating}</p>
-                            
-                            <Link to={`/courses/${course.id}`}>
-                                <button className="btn btn-primary w-72 mt-5">See Details</button>
-                            </Link>
-                            </div>
-                    </div>
-                    </div>
-                )
-            }
-           </div>
-           
-          
-            <div>
-                <RightSideNav filterCourse={filterCourse} />
-            
+        <div className='flex flex-col-reverse justify-center items-center lg:items-start lg:flex-row gap-16 courseContainer w-full'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mt-8 p-10'>
+                {
+                    allCourses?.map(course => 
+                       
+                        <div className="shadow-xl rounded-lg">
+                            <figure><img className='courseImg' src={course.img} alt="Shoes" /></figure>
+                            <div className="card-body">
+                                <h2 className="card-title">
+                                {course.name}
+                                <div className="badge badge-secondary">NEW</div>
+                                    </h2>
+                                        <p>Rating: {course.rating}</p>
+                                    
+                                    <Link to={`/courses/${course.id}`}>
+                                        <button className="btn btn-primary w-full mt-5">See Details</button>
+                                    </Link>
+                                </div>
+                        </div>
+                      
+                    )
+                }
             </div>
+                <div className='w-full p-10'>
+                    <RightSideNav filterCourse={filterCourse} />
+                </div>
            
             </div>
     );

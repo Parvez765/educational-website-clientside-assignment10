@@ -2,7 +2,7 @@ import React from 'react';
 
 const FAQ = () => {
     return (
-        <div>
+        <div className='p-10'>
             <h1 className='text-center text-3xl font-extrabold mt-5'>Who We Are?</h1>
             <p className='text-center mt-3 font-bold font-lg'>We Are Academic Earth Who Are Trying to Provide Premium Content</p>
             <h1 className='text-center text-3xl font-extrabold mt-5'>What Are The Courses We Have?</h1>

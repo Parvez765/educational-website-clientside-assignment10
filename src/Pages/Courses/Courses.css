@@ -3,6 +3,6 @@
     width: 100%;
     object-fit: contain;
 }
-/* .courseContainer{
-    margin: 100px;
-} */
+.courseContainer{
+   width: 100%;
+}

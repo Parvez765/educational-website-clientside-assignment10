@@ -33,11 +33,11 @@ const Mentoring = () => {
             <h2 className='text-5xl font-bold'>Mentoring Flow </h2>
 
             
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center justify-center items-center mt-14'>
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 justify-items-center justify-center items-center mt-14'>
                 {
                     services.map(service => <>
-                        <div className="card w-96 text-primary-content shadow-xl p-6">
-                            <div className="card-body hover:-mt-10 cursor-pointer">
+                        <div className="card text-primary-content shadow-xl p-6">
+                            <div className="card-body h-[350px] cursor-pointer">
                                 <div className='flex justify-center items-center'>
                                     <img src={service.img} alt="" className='w-[150px] '/>
                                 </div>
