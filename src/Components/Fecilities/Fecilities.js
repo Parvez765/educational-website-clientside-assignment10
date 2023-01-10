@@ -5,7 +5,7 @@ import { facilities } from '../../data/facilities';
 
 const Fecilities = () => {
     return (
-        <div className='facilitiesBanner p-14'>
+        <div className='facilitiesBanner p-14' data-aos="zoom-in-up">
             <div className='container mx-auto text-center'>
                 <h2 className='text-3xl lg:text-5xl font-bold'>What Will You Get</h2>
                 <p className='lg:text-xl text-yellow-400 mb-10'>We includes Awesome Features For Our Students</p>
