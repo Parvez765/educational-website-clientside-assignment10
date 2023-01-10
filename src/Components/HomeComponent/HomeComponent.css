@@ -1,0 +1,10 @@
+
+
+.btnPrimary{
+    background-color: rgb(27, 8, 134);
+    padding: 15px 20px;
+    color: white;
+    margin-top: 15px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px black;
+}
