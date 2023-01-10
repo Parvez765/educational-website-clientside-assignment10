@@ -5,7 +5,7 @@ import "./StudentReview.css"
 const StudentReview = () => {
     return (
         <div className='bg-slate-800 mt-10'>
-            <div className='container mx-auto p-16 lg:p-56 text-white flex flex-col lg:flex-row justify-around items-center text-center lg:text-left'>
+            <div className='container mx-auto p-16 lg:p-48 text-white flex flex-col lg:flex-row justify-around items-center text-center lg:text-left'>
                 <div className='lg:mr-44 mb-14' data-aos="fade-up">
                     <h2 className='text-xl lg:text-3xl'>We Have Earned</h2>
                     <h2 className='text-6xl lg:text-[150px] font-bold text-yellow-300'>150+</h2>

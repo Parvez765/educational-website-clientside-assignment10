@@ -4,6 +4,7 @@ import ExploreCourses from '../../Components/ExploreCourses/ExploreCourses';
 import Fecilities from '../../Components/Fecilities/Fecilities';
 import HomeComponent from '../../Components/HomeComponent/HomeComponent';
 import JoinMentor from '../../Components/JoinMentor/JoinMentor';
+import StudentCare from '../../Components/StudentCare/StudentCare';
 import StudentReview from '../../Components/StudentReview/StudentReview';
 
 
@@ -14,7 +15,8 @@ const Home = () => {
             <ExploreCourses />
             <Fecilities />
             <JoinMentor />
-            <StudentReview/>
+            <StudentReview />
+            <StudentCare/>
         </div>
     );
 };
