@@ -6,7 +6,7 @@ import Courses from '../Courses/Courses';
 
 const ExploreCourses = () => {
     return (
-        <div className='courseContainer'>
+        <div className='courseContainer' data-aos="fade-up">
             <div className='container mx-auto mt-16'>
                 <div className='flex flex-col lg:flex-row items-center justify-between'>
                     <div>
