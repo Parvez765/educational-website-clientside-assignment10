@@ -73,14 +73,14 @@ const Login = () => {
     }
 
     return (
-        <div>
-            <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col">
-                    <div className="text-center">
-                    <h1 className="text-5xl font-bold">Please Login!</h1>
-                    
+        <div className='container mx-auto p-6'>
+            <div className="mt-14 mb-14">
+                <div className="">
+                    <div>
+                        <h1 className='text-center mb-10 text-3xl lg:text-4xl font-bold'>Please Login</h1>
                     </div>
-                    <div className="card flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100">
+                        
+                    <div className="rounded-lg shadow-2xl bg-base-100 lg:w-[450px] block mx-auto">
                     <div className="card-body">
                         <form onSubmit={handleFormSubmit}>
                             <div className="form-control">
@@ -112,7 +112,7 @@ const Login = () => {
                                 </div>
                                 <p className='text-center font-bold text-red-800'>{error.message}</p>  
                                 <hr  className='mt-5'/>
-                                <Link to="/register"><p className='mt-5'>New To This Accout. Please Register</p></Link>
+                                <Link to="/register"><p className='mt-5 text-center'>New To This Accout. Please Register</p></Link>
                         </form>
                     </div>
                     </div>

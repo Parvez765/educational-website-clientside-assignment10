@@ -24,7 +24,7 @@ const Courses = () => {
 
     return (
         <div className='grid  grid-cols-1 lg:grid-cols-2 container mx-auto justify-center'>
-            <div className='lg:w-[550px] p-10 sticky top-0' data-aos="fade-up">
+            <div className=' lg:w-[550px] p-10 lg:sticky lg:top-0' data-aos="fade-up">
                 <RightSideNav filterCourse={filterCourse} />
             </div>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-7 mt-8 p-10' data-aos="fade-right">

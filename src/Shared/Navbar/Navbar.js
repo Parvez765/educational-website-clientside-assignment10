@@ -34,9 +34,14 @@ const Navbar = () => {
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <Link  to="/" className="btn btn-ghost normal-case text-xl">Home</Link>
                         <Link  to="/courses" className="btn btn-ghost normal-case text-xl">Courses</Link>
-                        <Link  to="/faq" className="btn btn-ghost normal-case text-xl">FAQ</Link>
-                        <Link to="/blog" className="btn btn-ghost normal-case text-xl">Blog</Link>
-                        <Link to="/blog" className="btn btn-ghost normal-case text-xl">Contact</Link>
+                        {/* <Link  to="/faq" className="btn btn-ghost normal-case text-xl">FAQ</Link> */}
+                        <Link to="/about" className="btn btn-ghost normal-case text-xl">About</Link>
+                            <Link to="/contact" className="btn btn-ghost normal-case text-xl">Contact</Link>
+                            {
+                        user ?  <Link to="/login" className="btn btn-ghost normal-case text-xl" onClick={userSignedOut}>Logout</Link> :  <Link to="/login" className="btn btn-ghost normal-case text-xl">Login</Link>
+                            }
+                              <FaSearch className='absolute -ml-24 mr-6'/>
+                    <input type="text" placeholder="Search" className="input input-bordered input-primary block mx-auto w-[180px]" />
                       
                     </ul>
                     </div>
@@ -47,12 +52,16 @@ const Navbar = () => {
                     <Link  to="/" className="btn btn-ghost normal-case text-xl">Home</Link>
                     <Link  to="/courses" className="btn btn-ghost normal-case text-xl">Courses</Link>
                     {/* <Link  to="/faq" className="btn btn-ghost normal-case text-xl">FAQ</Link> */}
-                        <Link to="/blog" className="btn btn-ghost normal-case text-xl">Blog</Link>
-                        <Link to="/blog" className="btn btn-ghost normal-case text-xl">Contact</Link>
+                        <Link to="/about" className="btn btn-ghost normal-case text-xl">About</Link>
+                        <Link to="/contact" className="btn btn-ghost normal-case text-xl">Contact</Link>
                        
                     </ul>
                 </div>
-                <div className="navbar-end">
+                <div className="navbar-end hidden lg:flex">
+                    {
+                        user ?  <Link to="/login" className="btn btn-ghost normal-case text-xl" onClick={userSignedOut}>Logout</Link> :  <Link to="/login" className="btn btn-ghost normal-case text-xl">Login</Link>
+                    }
+                        {/* <Link to="/blog" className="btn btn-ghost normal-case text-xl">Contact</Link> */}
                     <FaSearch className='absolute -ml-24 mr-6'/>
                     <input type="text" placeholder="Search" className="input input-bordered input-primary" />
                 {/* <div className="tooltip tooltip-bottom ml-[1200px]" data-tip={showName}>

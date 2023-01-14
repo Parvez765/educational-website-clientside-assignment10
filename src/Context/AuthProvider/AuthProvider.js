@@ -17,6 +17,9 @@ const AuthProvider = ({ children }) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
+    const handleLogOut = () => {
+        return signOut(auth)
+    }
 
     // Login With Email And Password
     const handleEmailSignIn = (email, password) => {
@@ -58,7 +61,7 @@ const AuthProvider = ({ children }) => {
         }
     },[])
 
-    const authInfo = {user, handleEmailSignIn, handleGoogleLogin, handleLoginWithGithub, handleUserSignOut, handleCreateNewUser, loading, updateUserProfile}
+    const authInfo = {user, handleEmailSignIn, handleGoogleLogin, handleLoginWithGithub, handleUserSignOut, handleCreateNewUser, loading, updateUserProfile, handleLogOut}
 
     return (
         <AuthContext.Provider value={authInfo}>
